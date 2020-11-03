@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 
+
 class Application(Frame):
     def __init__(self, master):
         super().__init__(master)
@@ -19,26 +20,23 @@ class Application(Frame):
         img = img.resize((102, 34))
         img = ImageTk.PhotoImage(img)
 
-        self.my_image = self.my_canvas.create_image(0, 0, anchor=NW, image=img)
-
-
-        # self.my_circle = self.my_canvas.create_oval(self.x, self.y, self.x+10, self.y+10)
-        self.master.bind("<Key>", self.pressing)
-        # self.coorx = Label(self, text=f"x = {(self.my_canvas.coords(self.my_circle)[0] + self.my_canvas.coords(self.my_circle)[2])/2}")
-        # self.coorx.pack()
-        # self.coory = Label(self, text=f"y = {(self.my_canvas.coords(self.my_circle)[1] + self.my_canvas.coords(self.my_circle)[3])/2}")
-        # self.coory.pack()
+        self.my_image = self.my_canvas.create_image(self.w/2, self.h/2, image=img)
+        self.master.bind("<B1-Motion>", self.pressing)
+        self.lbl_1 = Label(self, text='')
+        self.lbl_1.pack()
+        self.lbl_2 = Label(self, text='')
+        self.lbl_2.pack()
 
     def pressing(self, event):
-        x = 0
-        y = 0
-        if event.keysym == "Left": x = -10
-        if event.keysym == "Right": x = 10
-        if event.keysym == "Up": y = -10
-        if event.keysym == "Down": y = 10
-        self.my_canvas.move(self.my_image, x, y)
-        # self.coorx.config(text=f"x = {(self.my_canvas.coords(self.my_circle)[0] + self.my_canvas.coords(self.my_circle)[2])/2}")
-        # self.coory.config(text=f"y = {(self.my_canvas.coords(self.my_circle)[1] + self.my_canvas.coords(self.my_circle)[3])/2}")
+        global img
+        img = Image.open("images/login_button.jpg")
+        img = img.resize((102, 34))
+        img = ImageTk.PhotoImage(img)
+
+        self.my_image = self.my_canvas.create_image(event.x, event.y, image=img)
+        self.lbl_1.config(text=f"x = {event.x}")
+        self.lbl_2.config(text=f"y = {event.y}")
+        # self.my_canvas.move(self.my_image, event.x, event.y)
 
 
 root = Tk()

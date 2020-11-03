@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk, Image
+# from PIL import ImageTk, Image
 import sqlite3
 import datetime
 

@@ -8,7 +8,13 @@ class Application(Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        pass
+        self.my_button = Button(self, text="Click Me", command=self.cmd_info)
+        self.my_button.pack()
+
+    def cmd_info(self):
+        self.dimension_label = Label(self, text=self.master.winfo_geometry())
+        self.dimension_label.pack()
+
 
 
 root = Tk()

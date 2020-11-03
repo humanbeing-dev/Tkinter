@@ -2,7 +2,7 @@
 
 import platform
 from tkinter import *
-from PIL import Image
+# from PIL import Image
 import mysql.connector
 import csv
 from tkinter import ttk
@@ -25,7 +25,7 @@ root.geometry(geom)
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Sezamieotworzsie",
+    password="",
     auth_plugin="mysql_native_password",
     database="codemy"
 )
@@ -38,9 +38,9 @@ label_names = ["First name:", "Last name:", "Zipcode:", "Price:", "Email:", "Add
 columns = ["first_name", "last_name", "zipcode", "price_paid", "email", "address_1",
            "address_2", "city", "state", "country", "phone", "payment_method", "discount_code"]
 
-# # Create database
+# Create database
 # my_cursor.execute("CREATE DATABASE codemy")
-#
+
 # # Remove database
 # my_cursor.execute("DROP DATABASE customers")
 

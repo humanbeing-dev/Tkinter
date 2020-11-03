@@ -9,7 +9,9 @@ root.config(menu=my_menu)
 
 
 def our_command():
-    pass
+    lbl = tk.Label(root, text="test").pack()
+    a = (root.winfo_children())
+    print(a, type(a))
 
 
 # Create a menu item

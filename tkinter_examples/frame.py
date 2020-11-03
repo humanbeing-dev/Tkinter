@@ -4,7 +4,7 @@ from PIL import ImageTk, Image
 root = Tk()
 root.geometry("500x500")
 root.title("Using frames")
-root.iconbitmap("logo.ico")
+# root.iconbitmap("logo.ico")
 
 frame = LabelFrame(root, padx=50, pady=50)
 frame.pack(padx=10, pady=10)
